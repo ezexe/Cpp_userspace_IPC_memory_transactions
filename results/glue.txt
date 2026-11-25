@@ -1,0 +1,8 @@
+probe: 100 addEvents into a fresh MidiBuffer: 10 allocations; again after clear(): 0
+  block 179 (n=62, 40 MIDI events out): 1 allocation(s)
+  block 2115 (n=388, 72 MIDI events out): 1 allocation(s)
+ensureSize'd member + swapWith: allocations in processBlock, blocks 0-9: 5, burst: 0, blocks after: 2 | frames ok=5156776 silent=149114 wrong=0 | midi echoes at their own position=252788 late=6524 bad=0 | zero-size blocks=230, oversize=195
+  block 179 (n=62, 40 MIDI events out): 1 allocation(s)
+  block 818 (n=267, 64 MIDI events out): 1 allocation(s)
+clear + addEvent into the host's: allocations in processBlock, blocks 0-9: 5, burst: 0, blocks after: 2 | frames ok=5156776 silent=149114 wrong=0 | midi echoes at their own position=252788 late=6524 bad=0 | zero-size blocks=230, oversize=195
+host's ensureSize'd on block 0: allocations in processBlock, blocks 0-9: 1, burst: 0, blocks after: 0 | frames ok=5156776 silent=149114 wrong=0 | midi echoes at their own position=252788 late=6524 bad=0 | zero-size blocks=230, oversize=195

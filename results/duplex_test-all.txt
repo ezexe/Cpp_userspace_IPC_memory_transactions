@@ -1,0 +1,36 @@
+lap edge, validated: reads=3665971 frames accepted=60417024 wrong=0
+lap edge, no second look: reads=1935019 frames accepted=247682432 wrong=3576072
+restart gap of 512, rebase: ok=128 silent=512 stale-lap=0
+restart gap of 512, bare store of w: ok=128 silent=0 stale-lap=512
+one process, 512 frames x 2 ch: SampleRing::write 881 ns | SampleRing::read 891 ns | 2x memcpy 66 ns
+decoupled, L = Q-1                 L=127  kills=0 stops=0 | blocks=1507 frames ok=86920 silent=297195 (after 0.5 s: 278785) wrong=0 | cb max=35.2us >100us=0 >1ms=0
+                                     midi: expected=761 on_time=184 retimed=577 bad=0 lost=0 | after_audio host=0 peer=0 | closing=0 stale=0 gens=1 held past due=0 (max 0 frames) | peer jumps=1 late=0 dropped_at_start=0 | await timeouts=0
+decoupled, L = M+Q-1               L=639  kills=0 stops=0 | blocks=1507 frames ok=382415 silent=1700 (after 0.5 s: 932) wrong=0 | cb max=21.5us >100us=0 >1ms=0
+                                     midi: expected=762 on_time=760 retimed=2 bad=0 lost=0 | after_audio host=0 peer=0 | closing=0 stale=0 gens=1 held past due=0 (max 0 frames) | peer jumps=1 late=0 dropped_at_start=0 | await timeouts=0
+decoupled, L = M+Q-1+2ms           L=735  kills=0 stops=0 | blocks=1507 frames ok=383214 silent=901 (after 0.5 s: 5) wrong=0 | cb max=150.9us >100us=1 >1ms=0
+                                     midi: expected=762 on_time=762 retimed=0 bad=0 lost=0 | after_audio host=0 peer=0 | closing=0 stale=0 gens=1 held past due=0 (max 0 frames) | peer jumps=2 late=0 dropped_at_start=0 | await timeouts=0
+blocks up to 4M, L for M           L=735  kills=0 stops=0 | blocks=366 frames ok=205137 silent=179840 (after 0.5 s: 168230) wrong=0 | cb max=56.8us >100us=0 >1ms=0
+                                     midi: expected=763 on_time=408 retimed=355 bad=0 lost=0 | after_audio host=0 peer=0 | closing=0 stale=0 gens=1 held past due=0 (max 0 frames) | peer jumps=1 late=0 dropped_at_start=0 | await timeouts=0
+MIDI, 200us stall, audio           L=735  kills=0 stops=0 | blocks=1507 frames ok=383219 silent=896 (after 0.5 s: 0) wrong=0 | cb max=886.1us >100us=1507 >1ms=0
+                                     midi: expected=762 on_time=762 retimed=0 bad=0 lost=0 | after_audio host=0 peer=0 | closing=0 stale=0 gens=1 held past due=0 (max 0 frames) | peer jumps=2 late=0 dropped_at_start=0 | await timeouts=0
+audio, 200us stall, MIDI           L=735  kills=0 stops=0 | blocks=1507 frames ok=383219 silent=896 (after 0.5 s: 0) wrong=0 | cb max=1968.4us >100us=1507 >1ms=2
+                                     midi: expected=762 on_time=174 retimed=588 bad=0 lost=0 | after_audio host=587 peer=588 | closing=0 stale=0 gens=1 held past due=0 (max 0 frames) | peer jumps=1 late=588 dropped_at_start=0 | await timeouts=0
+decoupled, peer killed             L=735  kills=22 stops=0 | blocks=1507 frames ok=367690 silent=16425 (after 0.5 s: 15529) wrong=0 | cb max=38.7us >100us=0 >1ms=0
+                                     midi: expected=762 on_time=732 retimed=1 bad=0 lost=29 | after_audio host=0 peer=0 | closing=8 stale=15 gens=23 held past due=0 (max 0 frames) | peer jumps=1 late=0 dropped_at_start=14 | await timeouts=0
+decoupled, peer killed, no gen     L=735  kills=22 stops=0 | blocks=1507 frames ok=367921 silent=16194 (after 0.5 s: 15298) wrong=0 | cb max=21.9us >100us=0 >1ms=0
+                                     midi: expected=762 on_time=744 retimed=0 bad=0 lost=18 | after_audio host=0 peer=0 | closing=0 stale=0 gens=0 held past due=5 (max 96564 frames) | peer jumps=2 late=0 dropped_at_start=18 | await timeouts=0
+decoupled, peer frozen 20 ms       L=735  kills=0 stops=20 | blocks=1507 frames ok=374985 silent=9130 (after 0.5 s: 8234) wrong=0 | cb max=39.2us >100us=0 >1ms=0
+                                     midi: expected=762 on_time=749 retimed=13 bad=0 lost=0 | after_audio host=0 peer=0 | closing=0 stale=0 gens=1 held past due=0 (max 0 frames) | peer jumps=1 late=0 dropped_at_start=0 | await timeouts=0
+lockstep 1 ms budget               L=127  kills=0 stops=0 | blocks=1507 frames ok=383859 silent=256 (after 0.5 s: 0) wrong=0 | cb max=702.8us >100us=6 >1ms=0
+                                     midi: expected=761 on_time=761 retimed=0 bad=0 lost=0 | after_audio host=0 peer=0 | closing=0 stale=0 gens=1 held past due=0 (max 0 frames) | peer jumps=1 late=0 dropped_at_start=0 | await timeouts=0
+lockstep 1 ms budget, frozen       L=127  kills=0 stops=20 | blocks=1507 frames ok=366208 silent=17907 (after 0.5 s: 17651) wrong=0 | cb max=1004.9us >100us=80 >1ms=71
+                                     midi: expected=761 on_time=723 retimed=38 bad=0 lost=0 | after_audio host=0 peer=0 | closing=0 stale=0 gens=1 held past due=0 (max 0 frames) | peer jumps=1 late=0 dropped_at_start=0 | await timeouts=71
+fifo pair                          L=0    kills=0 stops=0 | blocks=1507 frames ok=382894 silent=1221 (after 0.5 s: 641) wrong=0 | cb max=169.8us >100us=1 >1ms=0 | latency median early=589 late=1221 frames
+fifo pair, peer frozen 20 ms       L=0    kills=0 stops=20 | blocks=1507 frames ok=382621 silent=1494 (after 0.5 s: 914) wrong=0 | cb max=956.1us >100us=2 >1ms=0 | latency median early=589 late=1494 frames
+decoupled, host under seccomp      L=735  kills=0 stops=0 | blocks=743 frames ok=191031 silent=1024 (after 0.5 s: 0) wrong=0 | cb max=11.0us >100us=0 >1ms=0
+                                     midi: expected=381 on_time=381 retimed=0 bad=0 lost=0 | after_audio host=0 peer=0 | closing=0 stale=0 gens=1 held past due=0 (max 0 frames) | peer jumps=1 late=0 dropped_at_start=0 | await timeouts=0
+lockstep, host under seccomp       L=127  kills=0 stops=0 | blocks=743 frames ok=190283 silent=1772 (after 0.5 s: 1516) wrong=0 | cb max=1024.3us >100us=16 >1ms=9
+                                     midi: expected=381 on_time=378 retimed=3 bad=0 lost=0 | after_audio host=0 peer=0 | closing=0 stale=0 gens=1 held past due=0 (max 0 frames) | peer jumps=1 late=0 dropped_at_start=0 | await timeouts=9
+control: seccomp + one getpid      host died: signal 31
+control: seccomp + one getpid      L=735  kills=0 stops=0 | blocks=0 frames ok=0 silent=0 (after 0.5 s: 0) wrong=0 | cb max=0.0us >100us=0 >1ms=0
+                                     midi: expected=0 on_time=0 retimed=0 bad=0 lost=0 | after_audio host=0 peer=0 | closing=0 stale=0 gens=0 held past due=0 (max 0 frames) | peer jumps=2 late=0 dropped_at_start=0 | await timeouts=0
