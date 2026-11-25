@@ -24,8 +24,14 @@ Linux x86-64 (the tests use `fork`, `shm_open`, seccomp; WSL 2 should do), GCC 1
 ./build.sh            # build everything and run it (about 4 minutes; the duplex suite is most of it)
 ./build.sh duplex     # build only
 CXX=clang++ ./build.sh utx
-JUCE=~/src/JUCE ./build.sh glue   # needs a JUCE checkout (tested at 9.0.6) and zlib
+./build.sh glue      # needs a JUCE checkout (tested at 9.0.6) and zlib
+./build.sh compdb    # writes .out/compile_commands.json for editors
+JUCE=~/src/JUCE ./build.sh glue   # a JUCE checkout somewhere else
 ```
+
+JUCE is taken from `/mnt/e/gritz/JUCE` (the checkout at `E:\gritz\JUCE` on the Windows drive) unless `JUCE` is set.
+
+Binaries and the compile database go to `.out/`. For VS Code, open the folder through WSL (`code .` from a WSL shell); `.vscode/c_cpp_properties.json` reads the compile database.
 
 `rtm` needs a CPU with TSX enabled; elsewhere it reports RTM=0 and stops.
 
